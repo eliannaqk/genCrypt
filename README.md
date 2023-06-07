@@ -35,48 +35,26 @@ named “pheno_data.csv” will appear in the folder, which is the
 phenotype prediction of the model. Please don’t delete or rename the
 directories in the folder.
 
-Note: run our code within the folder provided with the following
-commands (use the new genotypes.txt file in the second argument - move
-this file into our folder)
-'''
-cd EJ_idash2022
-go run ./main.go ./genotypes_1.txt ./coefs_1.csv
-'''
+## data location
 
-Steps to run Program in docker:
+## requirements: 
+Golang
 
-1. Unzip folder and copy genotype.txt file into folder
-cp <path to genotype.txt file> <path to unzipped folder>/
-EJ_idash2022T2/
-2. Open terminal and enter into folder, build docker container in
-folder with command as follows:
-  
-'''
-cd EJ_idash2022T2
-docker build -t my_docker
-'''
-  
-3. Open docker image and run:
-  
-'''
-go run ./main.go ./genotypes.txt ./coefs_1.csv
-'''  
-
-4.This will result in the creation of pheno_data.csv after the program
-has terminated.
-You can copy this file from the container to the host to save the
-results.
-Alternatively: Instead of copying genotype file into folder before
-building docker image you can complete the following step.
-*) In a new terminal window/tab, copy the genotype txt files
-from the host into the currently running container as follows:
-
+To install Lattigo: 
 ```
-docker cp /path/to/genotype.txt container_id:/home/EJ_idash2022T2/
-genotype.txt
+go get github.com/tuneinsight/lattigo/v3/ckks 
+go get github.com/tuneinsight/lattigo/v3/rlwe
 ```
 
-## alternative method with environment: 
+External Libraries: 
+"encoding/csv"
+"os"
+"strconv"
+"time"
+"log"
+"fmt"
+
+## to run code in folder: 
 ```bash
 module load miniconda
 conda activate go_env
