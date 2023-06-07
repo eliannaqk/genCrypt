@@ -71,7 +71,16 @@ building docker image you can complete the following step.
 *) In a new terminal window/tab, copy the genotype txt files
 from the host into the currently running container as follows:
 
-'''
+```
 docker cp /path/to/genotype.txt container_id:/home/EJ_idash2022T2/
 genotype.txt
-'''
+```
+
+## alternative method with environment: 
+```bash
+module load miniconda
+conda activate go_env
+go run main.go <path/to/genotypeMatrix> <path/to/model> <phenotype name> <number_iterations> <parameter_number>
+
+```
+
